@@ -5,8 +5,15 @@ const drawMap = function(){
   const london = [51.5, -0.076];
   const zoomlevel = 15;
   const mainMap = new MapWrapper(mapDiv, javaStreet, zoomlevel);
-  var button = document.querySelector('button');
-  button.addEventListener('click', mainMap.flyToLondon(london));
+
+  makeButton(mainMap, london);
+}
+
+const makeButton = function(map, london){
+    const button = document.getElementById("new-york-button");
+    button.addEventListener("click", function(){
+      map.flyToLondon(london);
+    })
 }
 
 
