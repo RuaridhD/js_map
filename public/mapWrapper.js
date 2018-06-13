@@ -6,6 +6,7 @@ const MapWrapper = function(element, coords, zoom){
   this.map.on("click", function(event){
     this.addMarker(event.latlng);
   }.bind(this))
+  this.addInfoWindow();
 }
 
 MapWrapper.prototype.addMarker = function (coords){
@@ -14,4 +15,9 @@ MapWrapper.prototype.addMarker = function (coords){
 
 MapWrapper.prototype.flyToLondon = function(coords){
   this.map.flyTo(coords);
+}
+
+MapWrapper.prototype.addInfoWindow = function(){
+  const myMarker = new L.marker([55.86515, -4.2573], {title: "Codeclan Glasgow"}).bindPopup("Codeclan Glasgow - Coding school in Scotland").openPopup();
+  myMarker.addTo(this.map);
 }
